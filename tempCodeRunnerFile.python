@@ -1,0 +1,18 @@
+class library:
+    def __init__(self,title,author,stock=0):
+        self.title=title
+        self.author=author
+        self.stock=stock
+class borrow(library):
+    def borrow(self,title,author,stock):
+        if stock<0:
+            print("not available")
+        else:
+            stock-=1
+            print(f"{title} by {author} is borrowed . Available stock is {stock}")
+class returned(library,borrow):
+    def returned(self,title,author,stock):
+        stock+=1
+        print(f"{title} by {author} is returned")
+
+obj=returned("h","k",2)
